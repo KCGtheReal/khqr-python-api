@@ -15,11 +15,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Securely grab the token from Render's Environment Variables
-BAKONG_TOKEN = os.getenv("BAKONG_TOKEN")
-
 # Initialize the package with your token
-khqr = KHQR(BAKONG_TOKEN)
+khqr = KHQR("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNmE1YTBhNGQ1OWNkNDA4ZSJ9LCJpYXQiOjE3NzY2NTQ2NTgsImV4cCI6MTc4NDQzMDY1OH0.MFbX-GEJYgIUSdk9y35tNVf6r0dm0BCu7pVuTZlmh-Q")
 
 class PaymentRequest(BaseModel):
     amount: float
