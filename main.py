@@ -17,9 +17,7 @@ app.add_middleware(
 )
 
 # Initialize with your actual Bakong token
-khqr = KHQR(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNmE1YTBhNGQ1OWNkNDA4ZSJ9LCJpYXQiOjE3NzY2NTQ2NTgsImV4cCI6MTc4NDQzMDY1OH0.MFbX-GEJYgIUSdk9y35tNVf6r0dm0BCu7pVuTZlmh-Q"
-)
+khqr = KHQR(os.environ.get("KHQR_TOKEN"))
 
 
 class PaymentRequest(BaseModel):
