@@ -55,11 +55,9 @@ def checkout(req: PaymentRequest):
 def verify(req: VerifyRequest):
     try:
         payment_status = khqr.check_payment(req.md5)
-        if payment_status != "UNPAID":
-            return {"responseCode": 0, "status": payment_status}
-        else:
-            return {"responseCode": 1, "status": "UNPAID"}
+        return {"status": payment_status}
     except Exception as e:
+        print("ERROR:", str(e))  # 👈 important
         raise HTTPException(status_code=500, detail=str(e))
 
 
