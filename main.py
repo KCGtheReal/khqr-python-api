@@ -34,6 +34,11 @@ def read_root():
     return {"status": "success", "message": "KHQR API is running correctly!"}
 
 
+@app.head("/")
+def head_root():
+    return {}
+
+
 @app.post("/api/checkout")
 def checkout(req: PaymentRequest):
     try:
