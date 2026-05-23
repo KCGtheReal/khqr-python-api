@@ -5,11 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from bakong_khqr import KHQR
 
-# NEW: Set proxy environment variables programmatically
-proxy_url = "http://mekongnet.com.kh@209.146.63.155:8080"
-os.environ["HTTP_PROXY"] = proxy_url
-os.environ["HTTPS_PROXY"] = proxy_url
-
 app = FastAPI()
 
 # IMPORTANT: Allow your frontend to talk to this API
@@ -21,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize with your actual Bakong token
+# Initialize with your Bakong token from the environment.
 khqr = KHQR(os.environ.get("KHQR_TOKEN"))
 
 
